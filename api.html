@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Oso Pardo - App</title>
+    <style>
+        body { font-family: sans-serif; background: #f5f0e6; margin: 0; padding: 20px; }
+        .card { background: white; border-radius: 12px; padding: 15px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        h2 { color: #8B4513; }
+        button { background: #2E7D32; color: white; border: none; padding: 12px; border-radius: 8px; width: 100%; font-size: 16px; }
+    </style>
+</head>
+<body>
+    <h1>🐻 Oso Pardo</h1>
+    <div id="tiendas"></div>V Y
+
+    <script>
+        async function cargarTiendas() {
+            const response = await fetch("http://tu-ip-servidor/api.php?action=tiendas");
+            const tiendas = await response.json();
+            
+            let html = "";
+            for (let t of tiendas) {
+                html += `<div class="card">
+                            <h3>🏪 ${t.nombre}</h3>
+                            <p>📍 ${t.localidad}</p>
+                            <p>📞 ${t.telefono}</p>
+                         </div>`;
+            }
+            document.getElementById("tiendas").innerHTML = html;
+        }
+        
+        cargarTiendas();
+    </script>
+</body>
+</html>
