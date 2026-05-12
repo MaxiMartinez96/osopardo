@@ -12,10 +12,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 }
 
 // Configuración de la base de datos
-$host = "localhost";
-$user = "root";
-$pass = "estrellita12"; // Cambia por tu contraseña
-$db = "OsoPardo";
+$host = "${{MySQL.MYSQLHOST}}";
+$user = "${{MySQL.MYSQLUSER}}";
+$pass = "${{MySQL.MYSQLPASSWORD}}"; // Cambia por tu contraseña
+$db = "${{MySQL.MYSQLDATABASE}}";
 
 $conn = new mysqli($host, $user, $pass, $db);
 
